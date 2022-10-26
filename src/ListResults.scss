@@ -1,0 +1,26 @@
+.container{
+    max-width: 2640px;
+    display: inline;
+  }
+
+.list-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    border: 1px solid rgb(113, 178, 235);
+}
+
+.listresults.container{
+    //max-width: 2640px;
+    margin-bottom: 25px;
+    border: 1px solid black;
+    .container-buttons{
+        display: flex;
+        justify-content: space-around;
+    }
+
+button {
+    width: 100px;
+    margin: 5px;
+}
+}
