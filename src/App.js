@@ -13,6 +13,7 @@ import { Routes } from 'react-router-dom'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from 'react';
+import Body from './Body'
 
 export const AUTH_TOKEN_KEY = 'jhi-authentificationToken'
 
@@ -37,9 +38,9 @@ useEffect(() => {
     <div>
       <Header />
       <div className="App">
-        <h1>
-          NAC
-        </h1>
+        <div className='body-container'>
+          <Body />
+        </div>
         <Routes>
           <Route path="/results" element={<ListResults />} />
           <Route path="/results/:resultId" element={<DetailledResult />} />

@@ -57,7 +57,7 @@ class Result extends React.Component{
         //renvoi vers les résultats
         .then(() => {
             //Redirection vers les résultats (pas trop bien compris le navigate sur classes)
-            Navigate("/results")
+            this.props.history("/results")
         })
     }
 
@@ -169,13 +169,7 @@ class Result extends React.Component{
 
 }
 
-//Fonction qui permet de revenir vers les résultats après 'PUT'
-export function Navigate(props){
-    const navigate = useNavigate()
-    return(
-        <Result navigate={navigate}>
-        </Result>
-    )
+export default function (props){
+    const history = useNavigate()
+    return <Result {...props} history={history} />
 }
-
-export default Result;
