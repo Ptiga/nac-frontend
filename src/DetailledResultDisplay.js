@@ -7,6 +7,19 @@ function DetailledResultDisplay(props){
     console.log('Fonds: ', props.fonds)
     console.log('Alerte: ', props.alerte)
     
+    const displayDate = (dateToConvert) => {
+        /*
+        //dateToConvert = new Date(dateToConvert).format("yyyy/mm/dd")
+        const convertedDate = new Date(dateToConvert)
+        return convertedDate.toLocaleDateString("fr-FR")
+        */
+        let day = dateToConvert.slice(6,8)
+        let month = dateToConvert.slice(4,6)
+        let year = dateToConvert.slice(0,4)
+       return `${year}/${month}/${day}`
+    }
+
+
     return(
         <div>
             <p>
@@ -20,16 +33,16 @@ function DetailledResultDisplay(props){
             </p>
             <br />
             <p>
-            <b>NAV date </b>:  {props.navDate}
+            <b>NAV date </b>:  {displayDate(props.navDate)}
             </p>
             <p>
             <b>Security</b>  ({props.securityType}) : {props.securityCode} ({props.securityLabel})
             </p>
             <p>
-            <b>Cours veille </b> : {props.priorPrice} {props.priorCurrency} (<b>date </b>: {props.priorDatePrice})
+            <b>Cours veille </b> : {props.priorPrice} {props.priorCurrency} (<b>date </b>: {displayDate(props.priorDatePrice)})
             </p>
             <p>
-            <b>Cours jour </b> : {props.currentPrice} {props.currentCurrency} (<b>date </b>: {props.fluctuation})
+            <b>Cours jour </b> : {props.currentPrice} {props.currentCurrency} (<b>date </b>: {displayDate(props.currentDatePrice)})
             </p>
             <p>
             <b>fluctuation </b> : {props.fluctuation}% - <b>Threshold </b>: {props.threshold}%

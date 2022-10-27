@@ -9,7 +9,7 @@ import Login from './Login';
 import DetailledResult from './DetailledResult'
 import Header from './Header';
 import { Route } from 'react-router'
-import { Routes, useNavigate, location } from 'react-router-dom'
+import { Routes, useNavigate, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
@@ -37,7 +37,7 @@ const UserConnected = ({userInfo, setUserInfo}) => {
         history('/login')
       }
     })
-  }, [])
+  }, [history, location.pathname])
   return(
     <Header 
           userInfo={userInfo}
