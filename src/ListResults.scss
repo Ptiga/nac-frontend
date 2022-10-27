@@ -1,6 +1,11 @@
+//Not working !?!?
 .container{
-    max-width: 2640px;
+    //max-width: 2640px;
     display: inline;
+    //overflow-y: scroll;
+    //overflow: auto;
+    //height: 50vh;
+    
   }
 
 .list-container{
@@ -8,6 +13,10 @@
     flex-wrap: wrap;
     margin-bottom: 25px;
     border: 1px solid rgb(113, 178, 235);
+}
+
+.results-button-container{
+    text-align: left;
 }
 
 .listresults.container{

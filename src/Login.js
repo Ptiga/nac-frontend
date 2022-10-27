@@ -1,8 +1,9 @@
 import React from "react";
-import {Link} from 'react-router-dom'
-import logoSG from './img/LogoSG.jpg'
-import logoNac from './img/LogoNAC.png'
+import {Link, useNavigate} from 'react-router-dom'
 import './Login.scss';
+import { AUTH_TOKEN_KEY } from './App';
+import axios from "axios";
+
 
 class Login extends React.Component{
 
@@ -11,7 +12,6 @@ class Login extends React.Component{
         this.state = {
             userData: {}
         }
-
 
     }
 
@@ -27,32 +27,54 @@ onSubmit = (event) => {
     console.log(this.state.userData)
     console.log("User login: ", this.state.userData.login)
     console.log("User password: ", this.state.userData.password)
+    
+    axios.post('/authenticate', {
+        //...this.state.userData
+        login: this.state.userData.login,
+        password: this.state.userData.password
+    }).then(response => {
+    //On va voir si on a un token dans le header de la réponse
+        const bearerToken = response?.header?.authorization
+        console.log('retour: ', bearerToken)
+        if (bearerToken && bearerToken.slice(0,7) === 'Bearer '){
+            const jwt = bearerToken.slice(7, bearerToken.length)
+            //J'insère mon token dans le storage
+            sessionStorage.setItem(AUTH_TOKEN_KEY,jwt)
+        }
+        //On récupère toutes les infos du user
+        this.props.setUserInfo(response.data.login)
+        this.props.history("/results")
+    })
+    
 }
+
 
 render(){
     return(
         <div className="login-container">
-            <div className="title">
-                <h2>Welcome !</h2>
-            </div>
-            <div className="form-container">
-                <form onSubmit={this.onSubmit} >
-                    <div>
-                        <label htmlFor='login'>Login</label>
-                        <input type='text' id='login' name="login" className='form-control' placeholder="login" onChange={this.handleChange} ></input>
-                    </div>
-                    <div>
-                        <label htmlFor='password'>Password</label>
-                        <input type='password' id='password' name="password" className='form-control' placeholder="password" onChange={this.handleChange} ></input>
-                    </div>
-                    <div>
-                        <input type="submit" className="btn btn-primary" value="Connexion" />
-                    </div>
-                </form>
-                <div>
-                    <Link to="/add-user">Create user</Link>
+            <div>
+                <div className="title">
+                    <h2>Welcome !</h2>
                 </div>
-            </div> 
+                <div className="form-container">
+                    <form onSubmit={this.onSubmit} >
+                        <div>
+                            <label htmlFor='login'>Login</label>
+                            <input type='text' id='login' name="login" className='form-control' placeholder="login" onChange={this.handleChange} ></input>
+                        </div>
+                        <div>
+                            <label htmlFor='password'>Password</label>
+                            <input type='password' id='password' name="password" className='form-control' placeholder="password" onChange={this.handleChange} ></input>
+                        </div>
+                        <div>
+                            <input type="submit" className="btn btn-primary" value="Connexion" />
+                        </div>
+                    </form>
+                    <div>
+                        <Link to="/add-user">Create user</Link>
+                    </div>
+                </div> 
+            </div>
         </div>
     )
 }
@@ -60,4 +82,8 @@ render(){
    
 }
 
-export default Login;
+//Wrapper (fonction qui va nous permettre d'utiliser un hook dans un composant de type classe)
+export default function (props){
+    const history = useNavigate()
+    return <Login {...props} history={history} />
+}

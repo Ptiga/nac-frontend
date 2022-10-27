@@ -15,10 +15,10 @@ useEffect(() => {
    
 return (
     <div className="container">
-        <div className="button-container">
+        <div className="results-button-container">
             <button className="btn btn-light" onClick={() => window.location.reload(false)}>Refresh results</button>
         </div>
-        <div className="list-container ">
+        <div className="list-container list-result-container">
             {resultList.length === 0 ? "Pas de résultats à afficher":null}
             {resultList.map((result, key) => (<div key={key} className="listresults.container">
                 <Result 
