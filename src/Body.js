@@ -1,8 +1,13 @@
-import logoSG from './logosg.jpg'
-import logoNac from './logonac.png'
+import logoSG from './img/LogoSG.jpg'
+import logoNac from './img/LogoNAC.png'
+import React, { useEffect, useState } from "react";
+import CheckNewFiles from './CheckNewFiles';
+import UploadNewStatements from './UploadNewStatements'
 
 function Body(){
 
+    const [newStatements, setNewStatements] = useState(0);
+    const [uploadedFiles, setUploadedFiles] = useState(0);
 
 return(
 <div className='container'>
@@ -12,6 +17,19 @@ return(
     <div className='logo-nac-container'>
         <img src={logoNac} alt="NAC" />
     </div>
+    <div>
+        <CheckNewFiles 
+            newStatements={newStatements}
+            setNewStatements={setNewStatements}
+        />
+    </div>
+    <div>
+        <UploadNewStatements 
+            uploadedFiles={uploadedFiles}
+            setUploadedFiles={setUploadedFiles}
+        />
+    </div>
+    
 </div>
 )
 }
