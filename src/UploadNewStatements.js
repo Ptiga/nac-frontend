@@ -24,7 +24,7 @@ useEffect(() => {
 return(
     <div className='container'>
         <div className='button-container'>
-            <button onClick={() => props.setUploadedFiles()}>
+            <button className="btn btn-light" onClick={() => props.setUploadedFiles()}>
                 Upload files
             </button>
             <p>{props.uploadedFiles} file(s) uploaded</p>

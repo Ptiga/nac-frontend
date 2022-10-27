@@ -24,7 +24,7 @@ useEffect(() => {
 return(
     <div className='container'>
         <div className='button-container'>
-            <button onClick={() => props.setNewStatements()}>
+            <button className="btn btn-light" onClick={() => props.setNewStatements()}>
                 Check new statements
             </button>
             <p>{props.newStatements} new file(s) to upload</p>
