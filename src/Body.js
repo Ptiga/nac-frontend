@@ -18,18 +18,25 @@ return(
         <img src={logoNac} alt="NAC" />
     </div>
     <div>
-        <CheckNewFiles 
-            newStatements={newStatements}
-            setNewStatements={setNewStatements}
-        />
+        {//{props.userInfo &&
+        }  
+            <CheckNewFiles 
+                newStatements={newStatements}
+                setNewStatements={setNewStatements}
+            />
+        {//}
+        }
     </div>
     <div>
-        <UploadNewStatements 
-            uploadedFiles={uploadedFiles}
-            setUploadedFiles={setUploadedFiles}
-        />
+        {//{props.userInfo && 
+        }  
+            <UploadNewStatements 
+                uploadedFiles={uploadedFiles}
+                setUploadedFiles={setUploadedFiles}
+            />
+        {//}
+        }
     </div>
-    
 </div>
 )
 }

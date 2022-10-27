@@ -75,6 +75,8 @@ function AddUser(){
                 //J'insère mon token dans le storage
                 sessionStorage.setItem(AUTH_TOKEN_KEY,jwt)
             }
+            //On récupère toutes les infos du user
+            this.props.setUserInfo(response.data)
         })
     }
 

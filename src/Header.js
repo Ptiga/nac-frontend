@@ -1,7 +1,19 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { AUTH_TOKEN_KEY } from './App'
 
+function Header(props){
 
-function Header(){
+    const history = useNavigate()
+
+    const logOff = () => {
+        //On va supprimer le token du local storage
+        sessionStorage.removeItem(AUTH_TOKEN_KEY)
+        console.log('Déconnexion')
+        //on met à null les infos utilisateur
+        props.setUserInfo(null)
+        history('/login')
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -21,8 +33,8 @@ function Header(){
                         <Link className="nav-link" to="/add-user"> Add user </Link>
                     </li>
                 </ul>
-                <div>Bienvenue, ...</div>
-                <button variant="secondary">Se déconnecter</button>
+                <div>Bienvenue {props.userInfo}</div>
+                <button variant="secondary" onClick={logOff}>Log Off</button>
             </div>
         </nav>
     )

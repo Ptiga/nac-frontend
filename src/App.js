@@ -12,7 +12,7 @@ import { Route } from 'react-router'
 import { Routes } from 'react-router-dom'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Body from './Body'
 
 export const AUTH_TOKEN_KEY = 'jhi-authentificationToken'
@@ -33,20 +33,31 @@ useEffect(() => {
   })
 })
 
+const [userInfo, setUserInfo] = useState('')
 
   return (
     <div>
-      <Header />
+      {//{userInfo &&
+      }
+      <Header 
+        userInfo={userInfo}
+        setUserInfo={setUserInfo}
+      />
+      {//}
+      }
       <div className="App">
         <div className='body-container'>
-          <Body />
+          <Body 
+            userInfo={userInfo} 
+          />
         </div>
         <Routes>
           <Route path="/results" element={<ListResults />} />
           <Route path="/results/:resultId" element={<DetailledResult />} />
           <Route path="/users" element={<ListUsers />} />
-          <Route path="/add-user" element={<AddUser />} />
+          <Route path="/add-user" element={<AddUser userInfo={userInfo} />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Login />} />
         </Routes>
       </div>
     </div>

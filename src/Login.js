@@ -32,36 +32,26 @@ onSubmit = (event) => {
 render(){
     return(
         <div className="login-container">
+            <div className="title">
+                <h2>Welcome !</h2>
+            </div>
+            <div className="form-container">
+                <form onSubmit={this.onSubmit} >
+                    <div>
+                        <label htmlFor='login'>Login</label>
+                        <input type='text' id='login' name="login" className='form-control' placeholder="login" onChange={this.handleChange} ></input>
+                    </div>
+                    <div>
+                        <label htmlFor='password'>Password</label>
+                        <input type='password' id='password' name="password" className='form-control' placeholder="password" onChange={this.handleChange} ></input>
+                    </div>
+                    <div>
+                        <input type="submit" className="btn btn-primary" value="Connexion" />
+                    </div>
+                </form>
                 <div>
-                    <div>
-                    <div>
-                        <img src={logoSG} alt="Société Générale" />
-                    </div>
-                    <div>
-                        <img src={logoNac} alt="NAC" />
-                    </div>
+                    <Link to="/add-user">Create user</Link>
                 </div>
-                <div className="title">
-                    <h2>Welcome !</h2>
-                </div>
-                <div className="form-container">
-                    <form onSubmit={this.onSubmit} >
-                        <div>
-                            <label htmlFor='login'>Login</label>
-                            <input type='text' id='login' name="login" className='form-control' placeholder="login" onChange={this.handleChange} ></input>
-                        </div>
-                        <div>
-                            <label htmlFor='password'>Password</label>
-                            <input type='password' id='password' name="password" className='form-control' placeholder="password" onChange={this.handleChange} ></input>
-                        </div>
-                        <div>
-                            <input type="submit" className="btn btn-primary" value="Connexion" />
-                        </div>
-                    </form>
-                    <div>
-                        <Link to="/add-user">Create user</Link>
-                    </div>
-                </div> 
             </div> 
         </div>
     )
