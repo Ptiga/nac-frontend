@@ -4,30 +4,35 @@ import axios from 'axios';
 
 function CheckNewFiles(props){
 
+let [dateCheckFiles, setDateCheckFiles] = useState('')
 
-
-const checkNewStatements = event => {
+const checkNewStatements = () => {
     //event.preventDefault();
-    let statements = CheckNewFiles()
-    props.setNewStatements()
-}
-
-useEffect(() => {
-    axios.get('/Check-new-statements').then((response =>{
+    //let statements = CheckNewFiles()
+    console.log('Check new statements')
+    
+    axios.get('/check-new-statements').then((response =>{
         props.setNewStatements(response.data)
     }))
     .then(
-        document.title = `${props.newStatements} new files to upload`
+        //document.title = `${props.newStatements} new files to upload`
+        setDateCheckFiles(new Date().toLocaleString("en-US") + "")
     );
-    })
+    }
+
 
 return(
     <div className='container'>
         <div className='body-button-container'>
-            <button className="btn btn-light" onClick={() => props.setNewStatements()}>
+            <button className="btn btn-light" onClick={checkNewStatements} >
                 Check new statements
             </button>
-            <p>{props.newStatements} new file(s) to upload</p>
+            <p>
+                {props.newStatements} new file(s) to upload
+            </p>
+            <p>
+                Last Check : {dateCheckFiles} 
+            </p>
         </div>
     </div>
 ) 

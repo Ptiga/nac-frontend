@@ -4,30 +4,37 @@ import axios from 'axios';
 
 function UploadNewStatements(props){
 
+let [dateUpload, setDateUpload] = useState('')
 
+const uploadNewStatements = () => {
+        //event.preventDefault();
+        //let statements = CheckNewFiles()
+        console.log('Upload new files')
+        
+        axios.get('/upload-new-statements').then((response =>{
+            props.setUploadedFiles(response.data)
+        }))
+        .then(
+            //document.title = `${props.uploadedFiles} new files to upload`
+            setDateUpload(new Date().toLocaleString("en-US") + "")
+        );
+        }
 
-const checkNewStatements = event => {
-    //event.preventDefault();
-    let files = UploadNewStatements()
-    props.setUploadedFiles()
-}
-
-useEffect(() => {
-    axios.get('/upload-new-statements').then((response =>{
-        props.setUploadedFiles(response.data)
-    }))
-    .then(
-        document.title = `${props.uploadedFiles} new files to upload`
-    );
-    })
+console.log('date: ', dateUpload)
 
 return(
     <div className='container'>
         <div className='body-button-container'>
-            <button className="btn btn-light" onClick={() => props.setUploadedFiles()}>
+            <button className="btn btn-light" onClick={uploadNewStatements}>
                 Upload files
             </button>
-            <p>{props.uploadedFiles} file(s) uploaded</p>
+            <p>
+                {props.uploadedFiles} file(s) uploaded
+            </p>
+            <p>
+                Last upload : {dateUpload} 
+            </p>
+            
         </div>
     </div>
 ) 
