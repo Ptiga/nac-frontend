@@ -8,7 +8,8 @@ const ListResults = () => {
 let [resultList, setResultList] = useState([])
 
 useEffect(() => {
-    axios.get('/results').then(response => {
+    axios.get('/results')
+    .then(response => {
         setResultList(response.data)
     })
 }, [])

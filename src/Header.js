@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { AUTH_TOKEN_KEY } from './App'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 function Header(props){
 
@@ -10,7 +11,7 @@ function Header(props){
         sessionStorage.removeItem(AUTH_TOKEN_KEY)
         console.log('Déconnexion')
         //on met à null les infos utilisateur
-        props.setUserInfo(null)
+        //props.setUserInfo(null)
         history('/login')
     }
 

@@ -4,7 +4,9 @@ import './AddUser.scss';
 import axios from 'axios';
 import { AUTH_TOKEN_KEY } from './App';
 
-function AddUser(){
+function AddUser(props){
+
+    console.log('Adduser - props: ', props)
 
     let{userId} = useParams();
     const [user, setUser] = useState(
@@ -20,6 +22,9 @@ function AddUser(){
 
     const roles = [
         {
+            label: ' '
+        },
+        {
             label: 'comptable'
         },
         {
@@ -31,6 +36,9 @@ function AddUser(){
     ]
 
     const teams = [
+        {
+            label: ' '
+        },
         {
             label: 'admin'
         },
@@ -56,19 +64,33 @@ function AddUser(){
     const onSubmit = (event) => {
         event.preventDefault();
         console.log("On Submit - Add User")
-        console.log("User submitted: ", user)
         console.log("User login: ", user.login)
         console.log("User role: ", user.role)
-        
+        console.log("User submitted: ", user)
+        let jsonUser={
+            login: user.login,
+            password: user.password,
+            role: user.role,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            team: user.team,
+        }
+        console.log('Json construit: ', jsonUser)
+        //console.log(...user)
         //Méthode post (on envoie les données utilisteur)
-        axios.post('/create-users', {
-            ...user
-        })
-        
-        
+        axios.post('/add-user', jsonUser
+        /*
+        {
+            //...user
+            jsonUser
+        }
+        */)
         .then(response => {
+            let retourUser = response.data
+            console.log('réponse - AddUser: ',retourUser)
         //On va voir si on a un token dans le header de la réponse
-            const bearerToken = response?.header?.authorization
+        
+        const bearerToken = response?.header?.authorization
             console.log('retour: ', bearerToken)
             if (bearerToken && bearerToken.slice(0,7) === 'Bearer '){
                 const jwt = bearerToken.slice(7, bearerToken.length)
@@ -76,7 +98,9 @@ function AddUser(){
                 sessionStorage.setItem(AUTH_TOKEN_KEY,jwt)
             }
             //On récupère toutes les infos du user
-            this.props.setUserInfo(response.data)
+            
+            //this.props.setUserInfo(response.data)
+            //props.setUserInfo(retourUser)
         })
     }
 

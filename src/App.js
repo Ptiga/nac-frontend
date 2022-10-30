@@ -18,7 +18,8 @@ import Body from './Body'
 export const AUTH_TOKEN_KEY = 'jhi-authentificationToken'
 
 
-/*A ACTIVER UNE FOIS LA CONNEXION OPERATIONNELLE
+/*A ACTIVER UNE FOIS LA CONNEXION OPERATIONNELLE*/
+{/*}
 //Va nous servirt à afficher le composant Header si l'utilisateur est connecté
 const UserConnected = ({userInfo, setUserInfo}) => {
   const history = useNavigate()
@@ -45,45 +46,43 @@ const UserConnected = ({userInfo, setUserInfo}) => {
         />
   )
 }
-*/
+*/}
 
 function App() {
 
 //Intercepter le token JWT (à chaque requête)
 useEffect(() => {
+  console.log('App - je passe par ici')
   axios.interceptors.request.use(function (request) {
+    //console('App - Request (début): ', request)
     const token = sessionStorage.getItem(AUTH_TOKEN_KEY)
-    console.log('Token: ', token)
-    if(token){
-      request.headers.Authorization = `Bearer ${token}`
+    console.log('App - Token: ', token)
+    if(token) {
+      request.headers.Authorization = `Bearer ${token}`;
+      console.log('App - ReqHeadAuth: ', request.headers.Authorization)
     }
+    //console('App - Request (fin): ', request)
     return request
   }, (error) => {
-      return Promise.reject(error)
-  })
+    console.log('Erreur au login')
+      console.log('App - Erreur: ', error)
+      return Promise.reject(error);
+  });
 })
 
-const [userInfo, setUserInfo] = useState('')
+const [userInfo, setUserInfo] = useState([])
 
   return (
     <div>
       {/*
-      A mettre à la place de Header une fois la connexion opérationnelle
-        <UserConnected 
-            userInfo={userInfo}
-            setUserInfo={setUserInfo}
-          />
+      <UserConnected 
+          userInfo={userInfo}
+          setUserInfo={setUserInfo}
+        />
       */}
-      {/*
       {userInfo &&
-      */}
-      <Header 
-        userInfo={userInfo}
-        setUserInfo={setUserInfo}
-      />
-      {/*
+      <Header />
       }
-      */}
       <div className="App">
         <div className='body-container'>
           <Body 
@@ -94,8 +93,8 @@ const [userInfo, setUserInfo] = useState('')
           <Route path="/results" element={<ListResults />} />
           <Route path="/results/:resultId" element={<DetailledResult />} />
           <Route path="/users" element={<ListUsers />} />
-          <Route path="/add-user" element={<AddUser userInfo={userInfo} />} />
-          <Route path="*" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/add-user" element={<AddUser setUserInfo={setUserInfo} userInfo={userInfo} />} />
         </Routes>
       </div>
     </div>

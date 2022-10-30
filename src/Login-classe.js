@@ -23,42 +23,30 @@ handleChange = (event) => {
 }
 
 onSubmit = (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     console.log("On submit - login")
     console.log(this.state.userData)
     console.log("User login -> ", this.state.userData.login)
     console.log("User password -> ", this.state.userData.password)
     let jsonLogin = {
-        userName: this.state.userData.login,
+        login: this.state.userData.login,
         password: this.state.userData.password,
     }
     console.log('JsonLogin : ',jsonLogin)
 
     axios.post("/login", jsonLogin
-    //axios.get(`/login/${this.state.userData.login}/${this.state.userData.password}`
+        /*{
             //...this.state.userData
-            //login: this.state.userData.login,
-            //password: this.state.userData.password,
-        //}*/
-    //fetch(`/login/${this.state.userData.login}/${this.state.userData.password}`, {
-    /*
-    fetch('/login', {
-        Method: 'POST',
-        Headers: {
-            Accept: 'application.json',
-            'Content-Type': 'application/json'
-        },
-        Body: jsonLogin,
-        Cache: 'default'
-        }
-        */
+            login: this.state.userData.login,
+            password: this.state.userData.password,
+        }*/
     )
     .then(response => {
         console.log('Jai un retour !!!')
         
         let rep = response.data
         console.log('rep: ', rep)
-        
+        /*
         //console.log(response.data)
         //On va voir si on a un token dans le header de la réponse
         const bearerToken = response?.headers?.authorization
@@ -74,7 +62,7 @@ onSubmit = (event) => {
         //console.log('donnée user: ', )
         
         this.props.history("/results")
-        
+        */
     })
     
 }
@@ -90,12 +78,12 @@ render(){
                 <div className="form-container">
                     <form onSubmit={this.onSubmit} >
                         <div>
-                            <label htmlFor='login-info'>Login</label>
-                            <input type='text' id='login-info' name="login" className='form-control' placeholder="login" onChange={this.handleChange} ></input>
+                            <label htmlFor='login'>Login</label>
+                            <input type='text' id='login' name="login" className='form-control' placeholder="login" onChange={this.handleChange} ></input>
                         </div>
                         <div>
-                            <label htmlFor="password-info">Password</label>
-                            <input type='password' id="password-info" name="password" className='form-control' placeholder="password" onChange={this.handleChange} ></input>
+                            <label htmlFor="password">Password</label>
+                            <input type='password' id="password" name="password" className='form-control' placeholder="password" onChange={this.handleChange} ></input>
                         </div>
                         <div>
                             <input type="submit" className="btn btn-primary" value="Connexion" />

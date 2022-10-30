@@ -3,62 +3,54 @@ import {Link, useNavigate} from 'react-router-dom'
 import './Login.scss';
 import { AUTH_TOKEN_KEY } from './App';
 import axios from "axios";
+import { useState } from 'react';
 
 
-class Login extends React.Component{
+function Login(){
 
-    constructor(){
-        super();
-        this.state = {
-            userData: {}
+    const [userData, SetUserData] = useState(
+        {
+            login: '',
+            password: ''
         }
-    this.handleChange = this.handleChange.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
-    }
+    )
 
-handleChange = (event) => {
-    let currentState = {...this.state.userData}
+const handleChange = (event) => {
+    console.log('UserData before change: ', userData)
+    let currentState = {...userData};
+    //event.target.name -> lien avec le champs name que l'on a mis dans la balise input et select
+    //event.target.value -> valeur du champs rempli/modifié
     currentState[event.target.name] = event.target.value
-    this.setState({userData: currentState})
+    //Mise à jour de l'user
+    SetUserData(currentState)
+    console.log('UserData after change: ', userData)
+
 }
 
-onSubmit = (event) => {
-    event.preventDefault();
+const onSubmit = (event) => {
     console.log("On submit - login")
-    console.log(this.state.userData)
-    console.log("User login -> ", this.state.userData.login)
-    console.log("User password -> ", this.state.userData.password)
+    
+    console.log("User login -> ", userData.login)
+    console.log("User password -> ", userData.password)
     let jsonLogin = {
-        userName: this.state.userData.login,
-        password: this.state.userData.password,
+        login: userData.login,
+        password: userData.password,
     }
     console.log('JsonLogin : ',jsonLogin)
 
     axios.post("/login", jsonLogin
-    //axios.get(`/login/${this.state.userData.login}/${this.state.userData.password}`
+        /*{
             //...this.state.userData
-            //login: this.state.userData.login,
-            //password: this.state.userData.password,
-        //}*/
-    //fetch(`/login/${this.state.userData.login}/${this.state.userData.password}`, {
-    /*
-    fetch('/login', {
-        Method: 'POST',
-        Headers: {
-            Accept: 'application.json',
-            'Content-Type': 'application/json'
-        },
-        Body: jsonLogin,
-        Cache: 'default'
-        }
-        */
+            login: this.state.userData.login,
+            password: this.state.userData.password,
+        }*/
     )
-    .then(response => {
+    .then(() => {
         console.log('Jai un retour !!!')
         
-        let rep = response.data
-        console.log('rep: ', rep)
-        
+        //let rep = response.data
+        //console.log('rep: ', rep)
+        /*
         //console.log(response.data)
         //On va voir si on a un token dans le header de la réponse
         const bearerToken = response?.headers?.authorization
@@ -74,28 +66,27 @@ onSubmit = (event) => {
         //console.log('donnée user: ', )
         
         this.props.history("/results")
-        
+        */
     })
     
 }
 
 
-render(){
-    return(
+return(
         <div className="login-container">
             <div>
                 <div className="title">
                     <h2>Welcome !</h2>
                 </div>
                 <div className="form-container">
-                    <form onSubmit={this.onSubmit} >
+                    <form onSubmit={onSubmit} >
                         <div>
-                            <label htmlFor='login-info'>Login</label>
-                            <input type='text' id='login-info' name="login" className='form-control' placeholder="login" onChange={this.handleChange} ></input>
+                            <label htmlFor='login'>Login</label>
+                            <input type='text' id='login' name="login" className='form-control' placeholder="login" onChange={handleChange} ></input>
                         </div>
                         <div>
-                            <label htmlFor="password-info">Password</label>
-                            <input type='password' id="password-info" name="password" className='form-control' placeholder="password" onChange={this.handleChange} ></input>
+                            <label htmlFor="password">Password</label>
+                            <input type='password' id="password" name="password" className='form-control' placeholder="password" onChange={handleChange} ></input>
                         </div>
                         <div>
                             <input type="submit" className="btn btn-primary" value="Connexion" />
@@ -111,10 +102,12 @@ render(){
 }
 
    
-}
-
+/*
 //Wrapper (fonction qui va nous permettre d'utiliser un hook dans un composant de type classe)
 export default function (props){
     const history = useNavigate()
     return <Login {...props} history={history} />
 }
+*/
+
+export default Login

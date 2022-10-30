@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import CheckNewFiles from './CheckNewFiles';
 import UploadNewStatements from './UploadNewStatements'
 
-function Body(){
+function Body(props){
 
     const [newStatements, setNewStatements] = useState(0);
     const [uploadedFiles, setUploadedFiles] = useState(0);
@@ -18,28 +18,20 @@ return(
         <img src={logoNac} alt="NAC" />
     </div>
     <div>
-        {/*
         {props.userInfo &&
-        */}  
             <CheckNewFiles 
                 newStatements={newStatements}
                 setNewStatements={setNewStatements}
             />
-        {/*
         }
-        */}
     </div>
     <div>
-        {/*
         {props.userInfo && 
-        */}  
             <UploadNewStatements 
                 uploadedFiles={uploadedFiles}
                 setUploadedFiles={setUploadedFiles}
             />
-        {/*
         }
-        */}
     </div>
 </div>
 )
