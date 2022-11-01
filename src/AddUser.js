@@ -1,4 +1,4 @@
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 import { useState } from 'react';
 import './AddUser.scss';
 import axios from 'axios';
@@ -7,6 +7,8 @@ import { AUTH_TOKEN_KEY } from './App';
 function AddUser(props){
 
     console.log('Adduser - props: ', props)
+
+    let history = useNavigate()
 
     let{userId} = useParams();
     const [user, setUser] = useState(
@@ -102,67 +104,71 @@ function AddUser(props){
     }
 
 
-
-    return (
-        <div className="container-add-user">
-            <h1>
-                Ajouter un utilisateur
-            </h1>
-            <form onSubmit={onSubmit}>
-                <div>
-                    <label>
-                        Login :
-                    </label>
-                    <input className="form-control" name="login" type="text" onChange={handleChange}></input>
-                </div>
-                <div>
-                    <label>
-                        Password :
-                    </label>
-                    <input name="password" type="text" className="form-control" onChange={handleChange} ></input>
-                </div>
-                <div>
-                    <label>
-                        First name :
-                    </label>
-                    <input name="firstName" type="text" className="form-control" onChange={handleChange} ></input>
-                </div>
-                <div>
-                    <label>
-                        Last Name :
-                    </label>
-                    <input className="form-control" name="lastName" type="text" onChange={handleChange} ></input>
-                </div>
-                <div>
-                    <label>
-                        Role :
-                    </label>
-                    <select name="role" className="form-control" onChange={handleChange} >
-                        {roles.map(role => (
-                            <option value={role.label} key={role.label}>
-                                {role.label}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div>
-                    <label>
-                        Team :
-                    </label>
-                    <select name="team" className="form-control" onChange={handleChange} >
-                        {teams.map(team => (
-                            <option value={team.label} key={team.label}>
-                                {team.label}
-                            </option>
-                        ))} 
-                    </select>
-                </div>
-                <div className="container-submit">
-                    <input type="submit" value="Create user" className="btn btn-primary"></input>
-                </div>
-            </form>
-        </div>
-    )
+    if(props.userRole==='ADMIN'){
+        return (
+            <div className="container-add-user">
+                <h1>
+                    Ajouter un utilisateur
+                </h1>
+                <form onSubmit={onSubmit}>
+                    <div>
+                        <label>
+                            Login :
+                        </label>
+                        <input className="form-control" name="login" type="text" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <label>
+                            Password :
+                        </label>
+                        <input name="password" type="text" className="form-control" onChange={handleChange} ></input>
+                    </div>
+                    <div>
+                        <label>
+                            First name :
+                        </label>
+                        <input name="firstName" type="text" className="form-control" onChange={handleChange} ></input>
+                    </div>
+                    <div>
+                        <label>
+                            Last Name :
+                        </label>
+                        <input className="form-control" name="lastName" type="text" onChange={handleChange} ></input>
+                    </div>
+                    <div>
+                        <label>
+                            Role :
+                        </label>
+                        <select name="role" className="form-control" onChange={handleChange} >
+                            {roles.map(role => (
+                                <option value={role.label} key={role.label}>
+                                    {role.label}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div>
+                        <label>
+                            Team :
+                        </label>
+                        <select name="team" className="form-control" onChange={handleChange} >
+                            {teams.map(team => (
+                                <option value={team.label} key={team.label}>
+                                    {team.label}
+                                </option>
+                            ))} 
+                        </select>
+                    </div>
+                    <div className="container-submit">
+                        <input type="submit" value="Create user" className="btn btn-primary"></input>
+                    </div>
+                </form>
+            </div>
+        )
+    }else{
+        history('/Oups')
+    }
+    
 }
 
 export default AddUser;

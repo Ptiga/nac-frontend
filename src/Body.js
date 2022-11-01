@@ -10,36 +10,54 @@ function Body(props){
     const [newStatements, setNewStatements] = useState(0);
     const [uploadedFiles, setUploadedFiles] = useState(0);
 
-return(
-<div className='container'>
-    <div className='logo-container'>
-        <div className='logo-sg-container'>
-            <img src={logoSG} alt="Société Générale" />
+
+if(props.userRole==='ADMIN'){
+    return(
+        <div className='container'>
+            <div className='logo-container'>
+                <div className='logo-sg-container'>
+                    <img src={logoSG} alt="Société Générale" />
+                </div>
+                <div className='logo-nac-container'>
+                    <img src={logoNac} alt="NAC" />
+                </div>
+            </div>
         </div>
-        <div className='logo-nac-container'>
-            <img src={logoNac} alt="NAC" />
+    )
+}else{
+    return(
+        <div className='container'>
+            <div className='logo-container'>
+                <div className='logo-sg-container'>
+                    <img src={logoSG} alt="Société Générale" />
+                </div>
+                <div className='logo-nac-container'>
+                    <img src={logoNac} alt="NAC" />
+                </div>
+            </div>
+            <div className='status-button-container'>
+                <div>
+                    {props.userInfo &&
+                        <CheckNewFiles 
+                            newStatements={newStatements}
+                            setNewStatements={setNewStatements}
+                        />
+                    }
+                </div>
+                <div>
+                    {props.userInfo && 
+                        <UploadNewStatements 
+                            uploadedFiles={uploadedFiles}
+                            setUploadedFiles={setUploadedFiles}
+                        />
+                    }
+                </div>
+            </div>
         </div>
-    </div>
-    <div className='status-button-container'>
-        <div>
-            {props.userInfo &&
-                <CheckNewFiles 
-                    newStatements={newStatements}
-                    setNewStatements={setNewStatements}
-                />
-            }
-        </div>
-        <div>
-            {props.userInfo && 
-                <UploadNewStatements 
-                    uploadedFiles={uploadedFiles}
-                    setUploadedFiles={setUploadedFiles}
-                />
-            }
-        </div>
-    </div>
-</div>
-)
+    )
+}
+
+
 }
 
 export default Body;

@@ -54,8 +54,19 @@ onSubmit = (event) => {
         //On récupère toutes les infos du user
         //this.props.setUserInfo(response.data.login)
         //console.log('donnée user: ', )
+        console.log("login - role : ", rep.role)
+
+        if(rep.role === "ROLE_USER"){
+            this.props.setUserRole("USER")
+            this.props.history("/results")
+        }else if(rep.role === "ROLE_ADMIN"){
+            this.props.setUserRole("ADMIN")
+            this.props.history("/users")
+        }else{
+            this.props.setUserRole("NONE")
+            this.props.history("/Oups")
+        }
         
-        this.props.history("/results")
         
     })
     
@@ -97,6 +108,7 @@ render(){
 
 //Wrapper (fonction qui va nous permettre d'utiliser un hook dans un composant de type classe)
 export default function (props){
+    console.log('Login - props : ', props)
     const history = useNavigate()
     return <Login {...props} history={history} />
 }

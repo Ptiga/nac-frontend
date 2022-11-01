@@ -14,7 +14,7 @@ function Header(props){
         //props.setUserInfo(null)
         history('/login')
     }
-
+if(props.userRole==='ADMIN'){
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -25,20 +25,38 @@ function Header(props){
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/results"> Results </Link>
-                    </li>
-                    <li className="nav-item">
                         <Link className="nav-link" to="/users"> Users </Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/add-user"> Add user </Link>
                     </li>
                 </ul>
-                <div>Welcome {props.userInfo}</div>
+            <div>Welcome {props.userInfo}</div>
                 <button className="btn btn-danger" variant="secondary" onClick={logOff}>Log Off</button>
             </div>
         </nav>
     )
+}else{
+    return (
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/results"> Results </Link>
+                    </li>
+                </ul>
+            <div>Welcome {props.userInfo}</div>
+                <button className="btn btn-danger" variant="secondary" onClick={logOff}>Log Off</button>
+            </div>
+        </nav>
+    )
+}
+
+    
 }
 
 export default Header;

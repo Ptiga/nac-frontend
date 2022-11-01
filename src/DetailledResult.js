@@ -1,4 +1,4 @@
-import {useParams, Link} from 'react-router-dom'
+import {useParams, Link, useNavigate} from 'react-router-dom'
 import DetailledResultDisplay from './DetailledResultDisplay'
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
@@ -14,6 +14,8 @@ function DetailledResult(props){
 
     const [detailledResult, setDetailledResult] = useState([])
 
+    let history = useNavigate()
+
     useEffect(() => {
         axios.get(`/results/${resultId}`).then((response =>{
             setDetailledResult(response.data)
@@ -23,8 +25,11 @@ function DetailledResult(props){
 console.log("détail to dispatch: ",detailledResult)
 console.log(detailledResult.id)
 console.log(detailledResult.codeFonds)
+console.log("Result - Role : ", props.userRole)
 
-if(detailledResult.id === undefined){
+
+
+if(props.userRole==='USER' && detailledResult.id === undefined){
     return(
         <div>
             <h3>
@@ -36,7 +41,7 @@ if(detailledResult.id === undefined){
             </Link>
         </div>
     )
-}else{
+}else if(props.userRole==='USER') {
     return(
         <div className='container'>
             <div>
@@ -73,6 +78,8 @@ if(detailledResult.id === undefined){
             </Link>
         </div>
     )
+}else{
+    history('/Oups')
 }
 }
 
