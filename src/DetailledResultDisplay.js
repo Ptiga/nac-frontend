@@ -2,17 +2,12 @@ function DetailledResultDisplay(props){
 
     
     console.log('ESSAI 2 - detail to display: ', props)
-    //console.log('key: ', props.key)
     console.log('Fonds: ', props.id)
     console.log('Fonds: ', props.fonds)
     console.log('Alerte: ', props.alerte)
     
     const displayDate = (dateToConvert) => {
-        /*
-        //dateToConvert = new Date(dateToConvert).format("yyyy/mm/dd")
-        const convertedDate = new Date(dateToConvert)
-        return convertedDate.toLocaleDateString("fr-FR")
-        */
+
         let day = dateToConvert.slice(6,8)
         let month = dateToConvert.slice(4,6)
         let year = dateToConvert.slice(0,4)

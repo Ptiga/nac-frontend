@@ -34,25 +34,7 @@ onSubmit = (event) => {
     }
     console.log('JsonLogin : ',jsonLogin)
 
-    axios.post("/login", jsonLogin
-    //axios.get(`/login/${this.state.userData.login}/${this.state.userData.password}`
-            //...this.state.userData
-            //login: this.state.userData.login,
-            //password: this.state.userData.password,
-        //}*/
-    //fetch(`/login/${this.state.userData.login}/${this.state.userData.password}`, {
-    /*
-    fetch('/login', {
-        Method: 'POST',
-        Headers: {
-            Accept: 'application.json',
-            'Content-Type': 'application/json'
-        },
-        Body: jsonLogin,
-        Cache: 'default'
-        }
-        */
-    )
+    axios.post("/login", jsonLogin)
     .then(response => {
         console.log('Jai un retour !!!')
         

@@ -25,13 +25,10 @@ function AddUser(props){
             label: ' '
         },
         {
-            label: 'comptable'
+            label: 'USER'
         },
         {
-            label: 'manager'
-        },
-        {
-            label: 'administrateur'
+            label: 'ADMIN'
         },
     ]
 
