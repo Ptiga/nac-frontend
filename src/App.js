@@ -1,9 +1,10 @@
 import './App.css';
 import { isCompositeComponent } from 'react-dom/test-utils';
-import User from './User'
-import Result from './Result'
-import ListResults from './ListResults'
-import ListUsers from './ListUsers'
+import User from './User';
+import Result from './Result';
+import ListResults from './ListResults';
+import ListUsers from './ListUsers';
+import RefreshListResults from './RefreshListResults';
 import AddUser from './AddUser';
 import Login from './Login';
 import DetailledResult from './DetailledResult'
@@ -91,9 +92,10 @@ const [userInfo, setUserInfo] = useState([])
         </div>
         <Routes>
           <Route path="/results" element={<ListResults />} />
+          <Route path="/results/refresh" element={<RefreshListResults />} />
           <Route path="/results/:resultId" element={<DetailledResult />} />
           <Route path="/users" element={<ListUsers />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Login />} />
           <Route path="/add-user" element={<AddUser setUserInfo={setUserInfo} userInfo={userInfo} />} />
         </Routes>
       </div>

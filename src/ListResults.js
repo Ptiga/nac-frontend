@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {Link, useNavigate} from 'react-router-dom'
 import Result from "./Result";
 import './ListResults.scss';
 import axios from "axios";
@@ -7,6 +8,8 @@ const ListResults = () => {
 
 let [resultList, setResultList] = useState([])
 
+let rfr = useNavigate()
+
 useEffect(() => {
     axios.get('/results')
     .then(response => {
@@ -14,11 +17,20 @@ useEffect(() => {
     })
 }, [])
    
+const handleChange = (event) => {
+    event.preventDefault();
+    rfr('/results/refresh')
+}
+
 return (
     <div className="container">
         <div className="results-button-container">
-            <button className="btn btn-light" onClick={() => window.location.reload(false)}>Refresh results</button>
+            <Link to='/results/refresh'>
+                <button className="btn btn-light">Refresh results
+                </button>
+            </Link>
         </div>
+
         <div className="list-container list-result-container">
             {resultList.length === 0 ? "Pas de résultats à afficher":null}
             {resultList.map((result, key) => (<div key={key} className="listresults.container">
