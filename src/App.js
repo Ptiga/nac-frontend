@@ -20,7 +20,7 @@ export const AUTH_TOKEN_KEY = 'jhi-authentificationToken'
 
 
 /*A ACTIVER UNE FOIS LA CONNEXION OPERATIONNELLE*/
-{/*}
+
 //Va nous servirt à afficher le composant Header si l'utilisateur est connecté
 const UserConnected = ({userInfo, setUserInfo}) => {
   const history = useNavigate()
@@ -35,25 +35,30 @@ const UserConnected = ({userInfo, setUserInfo}) => {
       setUserInfo(response.data)
     }, () => {
       //Si l'utilisateur n'est pas connecté
+      console.log('user connecté : ', userInfo)
       if(!location.pathname === '/login'){
         history('/login')
       }
     })
   }, [history, location.pathname])
-  return(
+  if(userInfo){
+    return(
     <Header 
           userInfo={userInfo}
           setUserInfo={setUserInfo}
         />
   )
+  }
+  
 }
-*/}
+
 
 function App() {
 
 //Intercepter le token JWT (à chaque requête)
 useEffect(() => {
   console.log('App - je passe par ici')
+  console.log('App - user info : ', userInfo)
   axios.interceptors.request.use(function (request) {
     //console('App - Request (début): ', request)
     const token = sessionStorage.getItem(AUTH_TOKEN_KEY)
@@ -73,17 +78,15 @@ useEffect(() => {
 
 const [userInfo, setUserInfo] = useState([])
 
+
+
   return (
     <div>
-      {/*
       <UserConnected 
           userInfo={userInfo}
           setUserInfo={setUserInfo}
         />
-      */}
-      {userInfo &&
-      <Header />
-      }
+
       <div className="App">
         <div className='body-container'>
           <Body 

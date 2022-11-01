@@ -34,8 +34,8 @@ function Header(props){
                         <Link className="nav-link" to="/add-user"> Add user </Link>
                     </li>
                 </ul>
-                <div>Bienvenue {props.userInfo}</div>
-                <button variant="secondary" onClick={logOff}>Log Off</button>
+                <div>Welcome {props.userInfo}</div>
+                <button className="btn btn-danger" variant="secondary" onClick={logOff}>Log Off</button>
             </div>
         </nav>
     )
