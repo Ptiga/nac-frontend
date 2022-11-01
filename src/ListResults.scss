@@ -19,10 +19,13 @@
     text-align: left;
 }
 
-.listresults.container{
+.list-result-container{
+    //background-color: aqua;
     //max-width: 2640px;
     margin-bottom: 25px;
     border: 1px solid black;
+    overflow-y: scroll;
+    height: 60vh;
     .container-buttons{
         display: flex;
         justify-content: space-around;

@@ -90,7 +90,7 @@ class Result extends React.Component{
                         <label htmlFor='securityCode'>Isin</label>
                         <input type='text' id='securityCode' name="securityCode" className='form-control' value={this.state.resultData.securityCode} readOnly="readonly" ></input>
                     </div>
-                    <div className="col" hidden={true} >
+                    <div className="col d-none d-xl-block" >
                         <label htmlFor='securityLabel'>Security label</label>
                         <input type='text' id='securityLabel' name="securityLabel" className='form-control' value={this.state.resultData.securityLabel} readOnly="readonly" ></input>
                     </div>
@@ -126,7 +126,7 @@ class Result extends React.Component{
                         <label htmlFor='fluctuation'>Fluctuation</label>
                         <input type='text' id='fluctuation' name="fluctuation" className='form-control' value={this.state.resultData.fluctuation} readOnly="readonly" ></input>
                     </div>
-                    <div className="col" >
+                    <div className="col d-none d-lg-block" >
                         <label htmlFor='threshold'>Threshold</label>
                         <input type='text' id='threshold' name="threshold" className='form-control' value={this.state.resultData.threshold} readOnly="readonly" ></input>
                     </div>
