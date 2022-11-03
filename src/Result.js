@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import {Link, useNavigate} from 'react-router-dom';
 import DetailledResult from "./DetailledResult";
+import './Result.scss'
 
 class Result extends React.Component{
 
@@ -65,12 +66,12 @@ class Result extends React.Component{
         return (
         <div className="container">
             <form onSubmit={this.onSubmit}>
-                <div className="row">
+                <div className="row result-container">
                     <div className="col" hidden={true} >
                         <label htmlFor='id'>Id</label>
                         <input type='text' id='id' name="id" className='form-control' value={this.state.resultData.id} readOnly="readonly" ></input>
                     </div>
-                    <div className="col">
+                    <div className="col-1">
                         <label htmlFor='codeFonds'>Fund code</label>
                         <input type='text' id='codeFonds' name="codeFonds" className='form-control' value={this.state.resultData.codeFonds} readOnly="readonly" ></input>
                     </div>
@@ -126,7 +127,7 @@ class Result extends React.Component{
                         <label htmlFor='fluctuation'>Fluctuation</label>
                         <input type='text' id='fluctuation' name="fluctuation" className='form-control' value={this.state.resultData.fluctuation} readOnly="readonly" ></input>
                     </div>
-                    <div className="col d-none d-lg-block" >
+                    <div className="col d-none d-xl-block" >
                         <label htmlFor='threshold'>Threshold</label>
                         <input type='text' id='threshold' name="threshold" className='form-control' value={this.state.resultData.threshold} readOnly="readonly" ></input>
                     </div>

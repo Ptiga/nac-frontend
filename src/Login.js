@@ -84,11 +84,11 @@ render(){
                     <form onSubmit={this.onSubmit} >
                         <div>
                             <label htmlFor='login-info'>Login</label>
-                            <input type='text' id='login-info' name="login" className='form-control' placeholder="login" onChange={this.handleChange} ></input>
+                            <input type='text' id='login-info' name="login" className='form-control' placeholder="login" onChange={this.handleChange} required ></input>
                         </div>
                         <div>
                             <label htmlFor="password-info">Password</label>
-                            <input type='password' id="password-info" name="password" className='form-control' placeholder="password" onChange={this.handleChange} ></input>
+                            <input type='password' id="password-info" name="password" className='form-control' placeholder="password" onChange={this.handleChange} required ></input>
                         </div>
                         <div>
                             <input type="submit" className="btn btn-primary" value="Connexion" />
