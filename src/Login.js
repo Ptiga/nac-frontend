@@ -94,9 +94,6 @@ render(){
                             <input type="submit" className="btn btn-primary" value="Connexion" />
                         </div>
                     </form>
-                    <div>
-                        <Link to="/add-user">Create user</Link>
-                    </div>
                 </div> 
             </div>
         </div>

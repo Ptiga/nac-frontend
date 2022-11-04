@@ -25,7 +25,7 @@ console.log('date: ', dateUpload)
 return(
     <div className='container'>
         <div className='body-button-container'>
-            <button className="btn btn-light" onClick={uploadNewStatements}>
+            <button className="btn btn-info" onClick={uploadNewStatements}>
                 Upload files
             </button>
             <p>

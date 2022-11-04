@@ -136,8 +136,9 @@ class Result extends React.Component{
                         <input type='text' id='alertType' name="alertType" className='form-control' value={this.state.resultData.alertType} readOnly="readonly" ></input>
                     </div>
                     <div className="col">
+                        <br />
                         <Link to={`/results/${this.state.resultData.id}`}>
-                            <button className="btn btn-primary">Détail
+                            <button className="btn btn-warning">Détail
                             </button>
                         </Link>
                     </div>
@@ -158,8 +159,9 @@ class Result extends React.Component{
                         <input type='text' id='activatedLine' name="activatedLine" className='form-control' value={this.state.resultData.activatedLine} readOnly="readonly" ></input>
                     </div>
                     <div className="col">
+                            <label></label>
                             <div className="container-submit">
-                                <input type="submit" value="Update" className="btn btn-primary"></input>
+                                <input type="submit" value="Update" className="btn btn-success"></input>
                             </div>
                     </div>
                 </div>

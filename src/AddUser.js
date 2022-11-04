@@ -100,69 +100,74 @@ function AddUser(props){
             
             //this.props.setUserInfo(response.data)
             //props.setUserInfo(retourUser)
+            history("/users")
         })
     }
 
 
-    if(props.userRole==='ADMIN'){
+    if(props.userRole==="ADMIN"){
         return (
             <div className="container-add-user">
-                <h1>
-                    Ajouter un utilisateur
-                </h1>
-                <form onSubmit={onSubmit}>
-                    <div>
-                        <label>
-                            Login :
-                        </label>
-                        <input className="form-control" name="login" type="text" onChange={handleChange}></input>
-                    </div>
-                    <div>
-                        <label>
-                            Password :
-                        </label>
-                        <input name="password" type="text" className="form-control" onChange={handleChange} ></input>
-                    </div>
-                    <div>
-                        <label>
-                            First name :
-                        </label>
-                        <input name="firstName" type="text" className="form-control" onChange={handleChange} ></input>
-                    </div>
-                    <div>
-                        <label>
-                            Last Name :
-                        </label>
-                        <input className="form-control" name="lastName" type="text" onChange={handleChange} ></input>
-                    </div>
-                    <div>
-                        <label>
-                            Role :
-                        </label>
-                        <select name="role" className="form-control" onChange={handleChange} >
-                            {roles.map(role => (
-                                <option value={role.label} key={role.label}>
-                                    {role.label}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <div>
-                        <label>
-                            Team :
-                        </label>
-                        <select name="team" className="form-control" onChange={handleChange} >
-                            {teams.map(team => (
-                                <option value={team.label} key={team.label}>
-                                    {team.label}
-                                </option>
-                            ))} 
-                        </select>
-                    </div>
-                    <div className="container-submit">
-                        <input type="submit" value="Create user" className="btn btn-primary"></input>
-                    </div>
-                </form>
+                <div className="form-container">
+                    <form onSubmit={onSubmit}>
+                        <div className="title">
+                            <h2>
+                                Ajouter un utilisateur
+                            </h2>
+                        </div>
+                        <div>
+                            <label>
+                                Login :
+                            </label>
+                            <input className="form-control" name="login" type="text" onChange={handleChange}></input>
+                        </div>
+                        <div>
+                            <label>
+                                Password :
+                            </label>
+                            <input name="password" type="text" className="form-control" onChange={handleChange} ></input>
+                        </div>
+                        <div>
+                            <label>
+                                First name :
+                            </label>
+                            <input name="firstName" type="text" className="form-control" onChange={handleChange} ></input>
+                        </div>
+                        <div>
+                            <label>
+                                Last Name :
+                            </label>
+                            <input className="form-control" name="lastName" type="text" onChange={handleChange} ></input>
+                        </div>
+                        <div>
+                            <label>
+                                Role :
+                            </label>
+                            <select name="role" className="form-control" onChange={handleChange} >
+                                {roles.map(role => (
+                                    <option value={role.label} key={role.label}>
+                                        {role.label}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div>
+                            <label>
+                                Team :
+                            </label>
+                            <select name="team" className="form-control" onChange={handleChange} >
+                                {teams.map(team => (
+                                    <option value={team.label} key={team.label}>
+                                        {team.label}
+                                    </option>
+                                ))} 
+                            </select>
+                        </div>
+                        <div className="container-submit">
+                            <input type="submit" value="Create user" className="btn btn-primary"></input>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     }else{

@@ -1,8 +1,21 @@
 .container-add-user{
-    width: 350px;
+    //width: 350px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 
+    .title{
+        font-size: larger;
+    }
+
+    .form-container{
+        margin-bottom: 10px;
+    }
+
+    /*
     .container-submit{
         margin-top: 15px;
         margin-bottom: 15px;
     }
+    */
 }

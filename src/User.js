@@ -7,13 +7,13 @@ function User(props){
 console.log(props)
 
 const onSubmit = (event) => {
-
+    event.preventDefault();
     console.log("On Submit - Update result")
     console.log("Result submitted: ", this.state.resultData)
     console.log("Result ID: ", this.state.resultData.id)
     console.log("O-comment submitted: ", this.state.resultData.operatorComment)
     console.log("S-comment submitted: ", this.state.resultData.supervisorComment)
-    event.preventDefault();
+    
 /*
     axios.put(`/results/${this.state.resultData.id}`, {
         ...this.state.resultData
@@ -64,15 +64,16 @@ const onSubmit = (event) => {
                     <div className="col">
                         <br/>
                         <div className="container-submit">
-                            <input type="submit" value="Update" className="btn btn-warning" disabled></input>
+                            <input type="submit" value="Update" className="btn btn-success" disabled></input>
                         </div>
                     </div>
                     <div className="col">
                         <br/>
-                        <Link to={`/users/${props.login}`}>
+                        {/*<Link to={`/users/${props.login}`}>
+                        */}
                             <button className="btn btn-danger" disabled>Delete
                             </button>
-                        </Link>
+                        {/*</Link>*/}
                     </div>
                 </div>
             </form>

@@ -116,7 +116,7 @@ console.log("App - role : ", userRole)
           <Route path="/results/:resultId" element={<DetailledResult userRole={userRole} />} />
           <Route path="/users" element={<ListUsers userRole={userRole} />} />
           <Route path="*" element={<Login userInfo={userInfo} setUserInfo={setUserInfo} userRole={userRole} setUserRole={setUserRole} />} />
-          <Route path="/add-user" element={<AddUser setUserInfo={setUserInfo} userInfo={userInfo} />} />
+          <Route path="/add-user" element={<AddUser setUserInfo={setUserInfo} userInfo={userInfo} userRole={userRole} />} />
           <Route path="/oups" element={<Oups setUserInfo={setUserInfo} userInfo={userInfo} userRole={userRole} />} />
         </Routes>
       </div>

@@ -30,7 +30,7 @@ if(props.userRole==='USER'){
         <div className="container">
             <div className="results-button-container">
                 <Link to='/results/refresh'>
-                    <button className="btn btn-light">Refresh results
+                    <button className="btn btn-primary">Refresh results
                     </button>
                 </Link>
             </div>

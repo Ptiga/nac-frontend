@@ -24,7 +24,7 @@ const checkNewStatements = () => {
 return(
     <div className='container'>
         <div className='body-button-container'>
-            <button className="btn btn-light" onClick={checkNewStatements} >
+            <button className="btn btn-info" onClick={checkNewStatements} >
                 Check new statements
             </button>
             <p>
