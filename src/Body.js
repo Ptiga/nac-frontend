@@ -1,4 +1,4 @@
-import logoSG from './img/LogoSG.jpg'
+import logoSG from './img/Logo-sgss.png'
 import logoNac from './img/LogoNAC.png'
 import React, { useEffect, useState } from "react";
 import CheckNewFiles from './CheckNewFiles';

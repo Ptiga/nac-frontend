@@ -1,4 +1,6 @@
 import {Link, useNavigate} from 'react-router-dom'
+import gandalfNo from './img/Shall-not-pass.gif'
+import seiyaNo from './img/Seiya-no.webp'
 
 
 
@@ -18,6 +20,9 @@ if(props.userRole==='ADMIN'){
             <p>
                 It seems you tried to go somewhere you couldn't
             </p>
+            <div className='container-gif'>
+                <img src={seiyaNo} alt="You can't go there" />
+            </div>
             <div className="oups-buttons-container">
                 <div className="oups-results-button-container">
                     <Link to='/users'>
@@ -43,6 +48,9 @@ return(
         <p>
             It seems you tried to reach the higher level.
         </p>
+        <div className='container-gif'>
+            <img src={gandalfNo} alt="You shall not pass" />
+        </div>
         <div className="oups-buttons-container">
             <div className="oups-results-button-container">
                 <Link to='/results'>
