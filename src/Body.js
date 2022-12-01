@@ -16,7 +16,7 @@ if(props.userRole==='ADMIN'){
         <div className='container'>
             <div className='logo-container'>
                 <div className='logo-bq-container'>
-                    <img src={logoBanque} alt="Ma banque" />
+                    <img src={logoBanque} alt="Ma banque" height={120} />
                 </div>
                 <div className='logo-nac-container'>
                     <img src={logoNac} alt="NAC" />
@@ -29,7 +29,7 @@ if(props.userRole==='ADMIN'){
         <div className='container'>
             <div className='logo-container'>
                 <div className='logo-bq-container'>
-                    <img src={logoBanque} alt="Ma banque" />
+                    <img src={logoBanque} alt="Ma banque" height={120} />
                 </div>
                 <div className='logo-nac-container'>
                     <img src={logoNac} alt="NAC" />
