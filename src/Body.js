@@ -1,4 +1,4 @@
-import logoSG from './img/Logo-sgss.png'
+import logoBanque from './img/Logo-banque.png'
 import logoNac from './img/LogoNAC.png'
 import React, { useEffect, useState } from "react";
 import CheckNewFiles from './CheckNewFiles';
@@ -15,8 +15,8 @@ if(props.userRole==='ADMIN'){
     return(
         <div className='container'>
             <div className='logo-container'>
-                <div className='logo-sg-container'>
-                    <img src={logoSG} alt="Société Générale" />
+                <div className='logo-bq-container'>
+                    <img src={logoBanque} alt="Ma banque" />
                 </div>
                 <div className='logo-nac-container'>
                     <img src={logoNac} alt="NAC" />
@@ -28,8 +28,8 @@ if(props.userRole==='ADMIN'){
     return(
         <div className='container'>
             <div className='logo-container'>
-                <div className='logo-sg-container'>
-                    <img src={logoSG} alt="Société Générale" />
+                <div className='logo-bq-container'>
+                    <img src={logoBanque} alt="Ma banque" />
                 </div>
                 <div className='logo-nac-container'>
                     <img src={logoNac} alt="NAC" />
