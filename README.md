@@ -36,7 +36,7 @@ Le projet utilise les librairies suivantes :
 <img src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-springboot.png" data-canonical-src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-springboot.png" height="100" />
 
 * Sass (mise en forme)
-<img src="https://github.com/Ptiga/nac-backend/blob/main/img/Spring Security.png" data-canonical-src="https://github.com/Ptiga/nac-backend/blob/main/img/Spring Security.png" height="100" />
+<img src="https://user-images.githubusercontent.com/84453483/217923429-4c04e6c4-5fbc-46cf-a470-774df1c2e6f0.png" data-canonical-src="https://user-images.githubusercontent.com/84453483/217923429-4c04e6c4-5fbc-46cf-a470-774df1c2e6f0.png" height="100" />
 
 * React-router (navigation)
 <img src="https://reactrouter.com/_brand/react-router-stacked-color.png" data-canonical-src="https://reactrouter.com/_brand/react-router-stacked-color.png" height="100" />
@@ -49,7 +49,7 @@ Le projet utilise les librairies suivantes :
 
 L'application a été développée avec VSCode.
 
-<img src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-IntelliJ.png" data-canonical-src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-IntelliJ.png" height="100" />
+<img src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-vscode.png" data-canonical-src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-vscode.png" height="100" />
 
 
 
