@@ -25,7 +25,7 @@ Ce projet fait office de POC afin d'évaluer la faisabilité de reproduire un de
 
 Ce projet est développé en langage JavaScript et utilise le framwork React.
 
-<img src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-javascript.png" data-canonical-src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-javascript.png"  height="100" /> <img src="https://github.com/Ptiga/nac-frontend/blob/main/public/logo512.png" data-canonical-src="https://github.com/Ptiga/nac-frontend/blob/main/public/logo512.png" height="100" />
+<img src="https://github.com/Ptiga/nac-frontend/blob/main/img/logo-javascript.png?raw=true" data-canonical-src="https://github.com/Ptiga/nac-frontend/blob/main/img/logo-javascript.png?raw=true" height="100" /> <img src="https://github.com/Ptiga/nac-frontend/blob/main/public/logo512.png" data-canonical-src="https://github.com/Ptiga/nac-frontend/blob/main/public/logo512.png" height="100" />
 
 
 ### 2) Librairies
