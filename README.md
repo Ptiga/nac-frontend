@@ -6,7 +6,7 @@
 
 **Sommaire**
 * I - Présentation du projet
-* II - Langage
+* II - Langage et outils
 * III - Lancement du projet
 * IV - Crédits
 
@@ -21,11 +21,11 @@ Ce projet fait office de POC afin d'évaluer la faisabilité de reproduire un de
 ## <u>II - Langages et outils utilisés</u>
 
 
-### 1) Langage
+### 1) Langage et outils
 
-Ce projet est développé en langage JavaScript et utilise le framwork Spring.
+Ce projet est développé en langage JavaScript et utilise le framwork React.
 
-<img src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-java.png" data-canonical-src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-java.png"  height="100" /> <img src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-spring.png" data-canonical-src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-spring.png"  height="100" />
+<img src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-java.png" data-canonical-src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-java.png"  height="100" /> <img src="https://github.com/Ptiga/nac-frontend/blob/main/public/logo512.png" data-canonical-src="https://github.com/Ptiga/nac-frontend/blob/main/public/logo512.png" height="100" />
 
 
 ### 2) Dépendances
