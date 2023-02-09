@@ -49,7 +49,7 @@ Le projet utilise les librairies suivantes :
 
 L'application a été développée avec VSCode.
 
-<img src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-vscode.png" data-canonical-src="https://github.com/Ptiga/nac-backend/blob/main/img/logo-vscode.png" height="100" />
+<img src="https://github.com/Ptiga/nac-frontend/blob/main/img/logo-vscode.png?raw=true" data-canonical-src="https://github.com/Ptiga/nac-frontend/blob/main/img/logo-vscode.png?raw=true" height="100" />
 
 
 
