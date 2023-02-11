@@ -2,12 +2,6 @@ import conanSherlock from './img/Conan-Sherlock.png'
 
 
 function DetailledResultDisplay(props){
-
-    
-    console.log('ESSAI 2 - detail to display: ', props)
-    console.log('Fonds: ', props.id)
-    console.log('Fonds: ', props.fonds)
-    console.log('Alerte: ', props.alerte)
     
     const displayDate = (dateToConvert) => {
 
@@ -16,7 +10,6 @@ function DetailledResultDisplay(props){
         let year = dateToConvert.slice(0,4)
        return `${year}/${month}/${day}`
     }
-
 
     return(
         <div className="detail-displayed-container">

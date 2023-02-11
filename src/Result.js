@@ -46,18 +46,13 @@ class Result extends React.Component{
     }
 
     onSubmit(event) {
-        console.log("On Submit - Update result")
-        console.log("Result submitted: ", this.state.resultData)
-        console.log("Result ID: ", this.state.resultData.id)
-        console.log("O-comment submitted: ", this.state.resultData.operatorComment)
-        console.log("S-comment submitted: ", this.state.resultData.supervisorComment)
         event.preventDefault();
         axios.put(`/results/${this.state.resultData.id}`, {
             ...this.state.resultData
         })
         //renvoi vers les résultats
         .then(() => {
-            //Redirection vers les résultats (pas trop bien compris le navigate sur classes)
+            //Redirection vers les résultats
             this.props.history("/results")
         })
     }
@@ -72,7 +67,7 @@ class Result extends React.Component{
                         <input type='text' id='id' name="id" className='form-control' value={this.state.resultData.id} readOnly="readonly" ></input>
                     </div>
                     <div className="col-1">
-                        <label htmlFor='codeFonds'>Fund code</label>
+                        <label htmlFor='codeFonds'>Fund</label>
                         <input type='text' id='codeFonds' name="codeFonds" className='form-control' value={this.state.resultData.codeFonds} readOnly="readonly" ></input>
                     </div>
                     <div className="col" hidden={true} >
@@ -83,7 +78,7 @@ class Result extends React.Component{
                         <label htmlFor='navDate'>NAV date</label>
                         <input type='text' id='navDate' name="navDate" className='form-control' value={this.state.resultData.navDate} readOnly="readonly" ></input>
                     </div>
-                    <div className="col">
+                    <div className="col d-none d-md-block">
                         <label htmlFor='controlName'>Check</label>
                         <input type='text' id='controlName' name="controlName" className='form-control' value={this.state.resultData.controlName} readOnly="readonly" ></input>
                     </div>
@@ -92,7 +87,7 @@ class Result extends React.Component{
                         <input type='text' id='securityCode' name="securityCode" className='form-control' value={this.state.resultData.securityCode} readOnly="readonly" ></input>
                     </div>
                     <div className="col d-none d-xl-block" >
-                        <label htmlFor='securityLabel'>Security label</label>
+                        <label htmlFor='securityLabel'>Security</label>
                         <input type='text' id='securityLabel' name="securityLabel" className='form-control' value={this.state.resultData.securityLabel} readOnly="readonly" ></input>
                     </div>
                     <div className="col" hidden={true} >
@@ -123,7 +118,7 @@ class Result extends React.Component{
                         <label htmlFor='currentCurrency'>Current currency</label>
                         <input type='text' id='currentCurrency' name="currentCurrency" className='form-control' value={this.state.resultData.currentCurrency} readOnly="readonly" ></input>
                     </div>
-                    <div className="col" >
+                    <div className="col d-none d-lg-block" >
                         <label htmlFor='fluctuation'>Fluctuation</label>
                         <input type='text' id='fluctuation' name="fluctuation" className='form-control' value={this.state.resultData.fluctuation} readOnly="readonly" ></input>
                     </div>
